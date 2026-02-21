@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const a = 5;
+  let message;
 
+  const[count, setCount] = useState(0);
+
+  const isLoggedIn = true;
+   if(isLoggedIn === true) 
+      {
+        message = "Welcome Back!"
+      }
+      else {
+        message = "Please log in."
+      }
+      
+  return (
+    <div>
+    <h1>Hello, React!</h1>
+      <p>a is equal to {a}</p>
+
+      <p>{message}</p>
+
+      <h2>{isLoggedIn ? "Welcome" : "Please Login."}</h2>
+
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+
+      <button onClick={() => setCount(count - 1)}>
+        decrease
+      </button>
+
+      <button onClick={() => setCount(0)}>
+        reset
+      </button>
+
+      </div>
+  );
+
+}
 export default App;
